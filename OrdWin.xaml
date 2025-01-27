@@ -1,0 +1,39 @@
+﻿<Window x:Class="Hotel.OrdWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hotel"
+        mc:Ignorable="d"
+        Title="Окно заказа" Height="600" Width="800" FontSize="18" FontFamily="Cascadia Code" Icon="/resources/Icon.png">
+    <Grid Background="#FFF9F5C8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <ComboBox x:Name="clientBox" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" Width="200" Height="35"/>
+        <Label Content="Клиент:" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="85" Height="35"/>
+        <ComboBox x:Name="roomBox" HorizontalAlignment="Left" Margin="176,214,0,0" VerticalAlignment="Top" Width="124" Height="35"/>
+        <Label Content="Номер комнаты:" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Width="161" Height="35"/>
+        <ComboBox x:Name="statusBox" HorizontalAlignment="Left" Margin="100,277,0,0" VerticalAlignment="Top" Width="200" Height="35"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="Статус:" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Width="85" Height="35"/>
+        <ListView x:Name="RoomList" Width="450" Height="300" Margin="326,152,74,14">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Номер комнаты" Width="150" DisplayMemberBinding="{Binding Number}"/>
+                    <GridViewColumn Header="Размер" Width="70" DisplayMemberBinding="{Binding Size}"/>
+                    <GridViewColumn Header="Тип" Width="120" DisplayMemberBinding="{Binding Type}"/>
+                    <GridViewColumn Header="Статус" Width="120" DisplayMemberBinding="{Binding Status}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Grid.Row="1" Grid.Column="1" Content="Список комнат:" HorizontalAlignment="Left" Margin="326,119,0,0" VerticalAlignment="Top" Width="400"/>
+        <Rectangle Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="90" Stroke="#FFACF7B6" VerticalAlignment="Top" Width="800" Fill="#FFACF7B6" Margin="0,-4,0,0"/>
+        <Image Grid.Row="1" Grid.Column="1" x:Name="Icon" HorizontalAlignment="Left" Height="75" Margin="7,7,0,0" VerticalAlignment="Top" Width="75" Source="/resources/Icon.png"/>
+        <Label Grid.Row="1" Grid.Column="1" x:Name="logo" Content="Охта Парк" HorizontalAlignment="Left" Margin="82,0,0,0" VerticalAlignment="Top" Height="82" Width="342" FontSize="50" FontFamily="Segoe Script"/>
+        <Button Grid.Row="1" Grid.Column="1" x:Name="ActBut" Content="Action" Width="100" Height="40" HorizontalAlignment="Left" Margin="200,412,0,0" VerticalAlignment="Top" Background="#FFFFC09F" BorderBrush="#FFFFC09F" Click="ActBut_Click"/>
+        <Button Grid.Row="1" Grid.Column="1" x:Name="BackBut" Content="Назад" Width="100" Height="40" HorizontalAlignment="Left" Margin="676,25,0,0" VerticalAlignment="Top" Background="#FFFFC09F" BorderBrush="#FFFFC09F" Click="BackBut_Click"/>
+    </Grid>
+</Window>
