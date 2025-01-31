@@ -13,7 +13,27 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <ListBox x:Name="OrdList" Grid.Row="1" Grid.Column="1" Height="300" Width="800" Margin="0,284,0,-29" BorderBrush="#FFFFEE94" Background="#FFFFEE94" MouseDoubleClick="OrdList_MouseDoubleClick"/>
+        <ListBox x:Name="OrdList" Grid.Row="1" Grid.Column="1" Height="300" Width="800" Margin="0,284,0,-29" BorderBrush="#FFFFEE94" Background="#FFFFEE94" MouseDoubleClick="OrdList_MouseDoubleClick">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border Name="Border" Padding="2" SnapsToDevicePixels="true">
+                                    <ContentPresenter/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="true">
+                                        <Setter TargetName="Border" Property="Background" Value="#FFFFC09F"/>
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
         <Button x:Name="AddBut" Grid.Row="1" Grid.Column="1" Content="Добавить" Width="100" Height="40" HorizontalAlignment="Left" Margin="660,225,0,0" VerticalAlignment="Top" Background="#FFFFC09F" BorderBrush="#FFFFC09F" Click="AddBut_Click"/>
         <Button x:Name="DelBut" Grid.Row="1" Grid.Column="1" Content="Удалить" Width="100" Height="40" HorizontalAlignment="Left" Margin="540,225,0,0" VerticalAlignment="Top" BorderBrush="#FFFFC09F" Background="#FFFFC09F" Click="DelBut_Click"/>
         <Button x:Name="RefBut" Grid.Row="1" Grid.Column="1" Content="Обновить" Width="100" Height="40" HorizontalAlignment="Left" Margin="420,225,0,0" VerticalAlignment="Top" Background="#FFFFC09F" BorderBrush="#FFFFC09F"/>
